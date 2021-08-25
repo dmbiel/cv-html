@@ -97,7 +97,7 @@ page[size=A4] {
   margin-top: 0.5em;
 }
 .page .content .experience span {
-  display: block justify;
+  display: block;
   font-size: 15;
 }
 .page .content .experience span.company, .page .content .experience span.title {
@@ -111,7 +111,7 @@ page[size=A4] {
   font-weight: 700;
 }
 .page .content .experience span.description {
-  text-align: justify;
+  text-align: block justify;
   margin-top: 0.5em;
 }
 .page .footer {
