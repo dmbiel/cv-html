@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap");
+
+$prod: true;
+$test: false;
+
+body {
+  background: rgb(204, 204, 204);
+}
+
+page[size="A4"] {
+  background-color: white;
+  @if $test == true {
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+@media print {
+  body,
+  page[size="A4"] {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+.page {
+  font-family: "Roboto Mono", monospace;
+  color: black;
+  display: block;
+  padding: 2cm 1.5cm;
+  @if $test == true { filter: blur(1px); }
+
+  .content {
+    @if $prod == false { background-color: lightblue; }
+    height: calc(0.9 * (29.7cm - 4cm));
+    display: flex;
+    flex-direction: row;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+
+      &.c1 {
+        width: 40%;
+      }
+
+      &.c2 {
+        width: 60%;
+      }
+    }
+
+    .break {
+      border-bottom: 1px solid black;
+      margin: 18px 0;
+      width: calc(100% - 25px);
+    }
+
+    .header {
+      height: 10cm;
+      text-transform: uppercase;
+
+      .name {
+        font-size: 30;
+        font-weight: bold;
+      }
+
+      .title {
+        font-size: 18;
+        color: rgb(153, 153, 153);
+      }
+    }
+
+    .info {
+      font-size: 15;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+
+      div {
+        margin: 0.5em 0;
+        line-height: 20px;
+        display: flex;
+
+        img {
+          height: 20px;
+          width: 20px;
+          margin: 0;
+          border-radius: 4px;
+
+          &.invert {
+            filter: invert(1);
+          }
+        }
+
+        span {
+          margin-left: 10px;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .capabilities {
+      span {
+        line-height: 2em;
+        display: block;
+        font-size: 15;
+      }
+
+      .category {
+        margin-top: 0.5em;
+        font-size: 18;
+        font-weight: 700;
+      }
+    }
+
+    .experience {
+      .role,
+      .company {
+        margin-top: 0.5em;
+      }
+
+      span {
+        display: block;
+        font-size: 15;
+
+        &.company,
+        &.title {
+          font-weight: 700;
+          font-size: 21;
+
+          &.spaced {
+            padding-top: 18;
+          }
+        }
+
+        &.position,
+        &.duration {
+          font-weight: 700;
+        }
+
+        &.description {
+          text-align: justify;
+          margin-top: 0.5em;
+        }
+        &.achievements {
+          text-align: justify;
+          margin-top: 0.5em;
+        }
+      }
+    }
+  }
+
+  .footer {
+    @if $prod == false { background-color: beige; }
+
+    height: calc(0.1 * (29.7cm - 4cm));
+    span{
+      font-size: 11px;
+      text-align: justify;
+    }
+
+    .break {
+      height: 15px;
+      border-bottom: 1px solid black;
+      // padding-top: 15px 0;
+    }
+  }
+}

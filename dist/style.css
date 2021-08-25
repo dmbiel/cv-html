@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap");
+body {
+  background: #cccccc;
+}
+
+page[size=A4] {
+  background-color: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+@media print {
+  body,
+page[size=A4] {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+.page {
+  font-family: "Roboto Mono", monospace;
+  color: black;
+  display: block;
+  padding: 2cm 1.5cm;
+}
+.page .content {
+  height: calc(0.9 * (29.7cm - 4cm));
+  display: flex;
+  flex-direction: row;
+}
+.page .content .column {
+  display: flex;
+  flex-direction: column;
+}
+.page .content .column.c1 {
+  width: 40%;
+}
+.page .content .column.c2 {
+  width: 60%;
+}
+.page .content .break {
+  border-bottom: 1px solid black;
+  margin: 18px 0;
+  width: calc(100% - 25px);
+}
+.page .content .header {
+  height: 3cm;
+  text-transform: uppercase;
+}
+.page .content .header .name {
+  font-size: 30;
+  font-weight: bold;
+}
+.page .content .header .title {
+  font-size: 18;
+  color: #999999;
+}
+.page .content .info {
+  font-size: 15;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+.page .content .info div {
+  margin: 0.5em 0;
+  line-height: 20px;
+  display: flex;
+}
+.page .content .info div img {
+  height: 20px;
+  width: 20px;
+  margin: 0;
+  border-radius: 4px;
+}
+.page .content .info div img.invert {
+  filter: invert(1);
+}
+.page .content .info div span {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.page .content .capabilities span {
+  line-height: 2em;
+  display: block;
+  font-size: 15;
+}
+.page .content .capabilities .category {
+  margin-top: 0.5em;
+  font-size: 18;
+  font-weight: 700;
+}
+.page .content .experience .role,
+.page .content .experience .company {
+  margin-top: 0.5em;
+}
+.page .content .experience span {
+  display: block justify;
+  font-size: 15;
+}
+.page .content .experience span.company, .page .content .experience span.title {
+  font-weight: 700;
+  font-size: 21;
+}
+.page .content .experience span.company.spaced, .page .content .experience span.title.spaced {
+  padding-top: 18;
+}
+.page .content .experience span.position, .page .content .experience span.duration {
+  font-weight: 700;
+}
+.page .content .experience span.description {
+  text-align: justify;
+  margin-top: 0.5em;
+}
+.page .footer {
+  height: calc(0.1 * (29.7cm - 4cm));
+}
+.page .footer span {
+  font-size: 11px;
+  text-align: justify;
+}
+.page .footer .break {
+  height: 15px;
+  border-bottom: 1px solid black;
+}
+
+/*# sourceMappingURL=style.css.map */
