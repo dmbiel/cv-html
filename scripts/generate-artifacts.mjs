@@ -98,6 +98,8 @@ try {
           overflowY: sheet.scrollHeight - sheet.clientHeight,
           contentOverflowX: content.scrollWidth - content.clientWidth,
           contentOverflowY: content.scrollHeight - content.clientHeight,
+          contentBottom: content.getBoundingClientRect().bottom - sheetRect.top,
+          footerTop: footerRect.top - sheetRect.top,
           footerBottom: footerRect.bottom - sheetRect.top,
         };
       },
@@ -132,6 +134,10 @@ try {
     assert(
       pageLayout.footerBottom <= pageLayout.height,
       `Page ${pageLayout.number} footer is outside the A4 sheet`,
+    );
+    assert(
+      pageLayout.contentBottom <= pageLayout.footerTop,
+      `Page ${pageLayout.number} content overlaps its footer`,
     );
   });
 
@@ -177,6 +183,8 @@ try {
     format: "A4",
     printBackground: true,
     preferCSSPageSize: true,
+    tagged: true,
+    outline: true,
     margin: { top: "0", right: "0", bottom: "0", left: "0" },
   });
 

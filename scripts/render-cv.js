@@ -25,20 +25,33 @@
   const renderHeader = () => {
     const header = element("header", "header");
     header.append(
-      element("div", "name", data.person.name),
-      element("div", "title", data.person.title),
+      element("h1", "name", data.person.name),
+      element("p", "title", data.person.title),
     );
     return header;
   };
 
   const renderContacts = () => {
     const contacts = element("section", "info");
+    contacts.append(element("h2", "visually-hidden", "Contact details"));
 
     data.contacts.forEach((contact) => {
       const row = element("div");
       const icon = element("img");
       icon.src = contact.icon;
-      row.append(icon, element("span", "", contact.text));
+      icon.alt = "";
+      icon.setAttribute("aria-hidden", "true");
+
+      const text = contact.href
+        ? element("a", "", contact.text)
+        : element("span", "", contact.text);
+
+      if (contact.href) {
+        text.href = contact.href;
+      }
+
+      text.setAttribute("aria-label", contact.label);
+      row.append(icon, text);
       contacts.append(row);
     });
 
@@ -47,18 +60,18 @@
 
   const renderListSection = (title, items) => {
     const section = element("section", "capabilities");
-    section.append(element("span", "category", title));
+    section.append(element("h2", "category", title));
     items.forEach((item) => section.append(element("span", "", item)));
     return section;
   };
 
   const renderLanguages = () => {
     const section = element("section", "capabilities");
-    section.append(element("span", "category", "LANGUAGES"));
+    section.append(element("h2", "category", "LANGUAGES"));
 
     data.languages.forEach((language) => {
       section.append(
-        element("span", "category", language.name),
+        element("h3", "category", language.name),
         element("span", "", language.proficiency),
       );
     });
@@ -74,11 +87,11 @@
 
   const renderExperience = (experience, achievementRange) => {
     const fragment = document.createDocumentFragment();
-    fragment.append(element("span", "company", experience.company));
+    fragment.append(element("h3", "company", experience.company));
 
     const role = element("article", "role");
     role.append(
-      element("span", "position", experience.position),
+      element("h4", "position", experience.position),
       element("span", "duration", experience.duration),
     );
 
@@ -99,19 +112,26 @@
   };
 
   const renderExperienceContinuation = (experience, startIndex) => {
-    const role = element("article", "role continuation");
+    const role = element("section", "role continuation");
+    role.append(
+      element(
+        "h2",
+        "visually-hidden",
+        `${experience.company} experience continued`,
+      ),
+    );
     role.append(renderAchievements(experience.achievements.slice(startIndex)));
     return role;
   };
 
   const renderCertificates = () => {
     const section = element("section", "cv-section certificates");
-    section.append(element("span", "title spaced", "CERTIFICATES"));
+    section.append(element("h2", "title spaced", "CERTIFICATES"));
 
     data.certificates.forEach((certificate) => {
       const item = element("article", "certificate");
       item.append(
-        element("span", "position", certificate.name),
+        element("h3", "position", certificate.name),
         element("span", "description", certificate.description),
       );
       section.append(item);
@@ -122,12 +142,12 @@
 
   const renderEducation = () => {
     const section = element("section", "cv-section education");
-    section.append(element("span", "title spaced", "EDUCATION"));
+    section.append(element("h2", "title spaced", "EDUCATION"));
 
     data.education.forEach((education) => {
       const item = element("article", "role education-item");
       item.append(
-        element("span", "position", education.degree),
+        element("h3", "position", education.degree),
         element("span", "duration", education.duration),
         element("span", "description", education.description),
       );
@@ -139,13 +159,14 @@
 
   const renderFooter = () => {
     const footer = element("footer", "footer");
-    footer.append(divider(), element("span", "", data.consent));
+    footer.append(divider(), element("p", "", data.consent));
     return footer;
   };
 
   const createPage = (number, sidebar, mainContent) => {
     const sheet = element("section", "page-sheet");
     sheet.dataset.page = String(number);
+    sheet.setAttribute("aria-label", `CV page ${number} of 2`);
 
     const page = element("div", "page");
     const content = element("div", "content");
@@ -170,8 +191,8 @@
     renderListSection("DevOps, CI & CD", data.skills.devOps),
   ];
 
-  const pageOneExperience = element("div");
-  pageOneExperience.append(element("span", "title", "EXPERIENCE"));
+  const pageOneExperience = element("section");
+  pageOneExperience.append(element("h2", "title", "EXPERIENCE"));
   pageOneExperience.append(renderExperience(data.experience[0]));
   pageOneExperience.append(renderExperience(data.experience[1]));
   pageOneExperience.append(renderExperience(data.experience[2], [0, 2]));
@@ -191,4 +212,3 @@
     ]),
   );
 })();
-

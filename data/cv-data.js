@@ -4,26 +4,50 @@ window.CV_DATA = {
     title: "Senior QA Engineer",
   },
   contacts: [
-    { icon: "images/poland_invert.png", text: "Polish citizen" },
-    { icon: "images/image4.png", text: "LN: in/dmytrobieliaiev" },
-    { icon: "images/image2.png", text: "GH: dmbiel" },
-    { icon: "images/image3.png", text: "+48 888 872 708" },
-    { icon: "images/image1_invert.png", text: "dmytro.bieliaiev@gmail.com" },
+    {
+      icon: "images/poland_invert.png",
+      text: "Polish citizen",
+      label: "Citizenship: Polish",
+    },
+    {
+      icon: "images/image4.png",
+      text: "LN: in/dmytrobieliaiev",
+      href: "https://www.linkedin.com/in/dmytrobieliaiev",
+      label: "LinkedIn profile",
+    },
+    {
+      icon: "images/image2.png",
+      text: "GH: dmbiel",
+      href: "https://github.com/dmbiel",
+      label: "GitHub profile",
+    },
+    {
+      icon: "images/image3.png",
+      text: "+48 888 872 708",
+      href: "tel:+48888872708",
+      label: "Telephone: +48 888 872 708",
+    },
+    {
+      icon: "images/image1_invert.png",
+      text: "dmytro.bieliaiev@gmail.com",
+      href: "mailto:dmytro.bieliaiev@gmail.com",
+      label: "Email: dmytro.bieliaiev@gmail.com",
+    },
   ],
   skills: {
     qa: [
       "Playwright",
       "TypeScript / JavaScript",
       "BDD",
-      "SpecFlow / ReqnRoll",
-      "K6",
-      "API testing",
+      "ReqnRoll / SpecFlow",
+      "k6",
+      "API Testing",
       "Selenium",
       "Cypress",
       "GitHub Copilot",
     ],
     devOps: [
-      "Atlassian Jira",
+      "Jira",
       "GitHub Actions",
       "Docker",
       "Azure DevOps",
@@ -46,9 +70,9 @@ window.CV_DATA = {
       position: "Lead Quality Assurance Engineer",
       duration: "2021-10 - Present",
       summary:
-        "My primary responsibilities are the creation and support of a product application, with .NET microservices on AWS and 3 different types of clients, on Kubernetes cloud cluster, with cloud integrations.",
+        "Lead quality assurance for a cloud-native product built on .NET microservices running on AWS and Kubernetes, with three client applications and multiple cloud integrations.",
       achievements: [
-        "Lead and maintain the implementation of the delivery pipeline, including test automation, frameworks, build environments, test environments, and security",
+        "Lead and maintain the delivery pipeline, including test automation frameworks, build and test environments, and security controls.",
       ],
     },
     {
@@ -56,11 +80,11 @@ window.CV_DATA = {
       position: "Test Analyst",
       duration: "2018-06 - 2021-11",
       summary:
-        "Took part in the creation and support of an in-house application, with dockerized .NET microservices and Angular front-end, on Kubernetes cloud cluster, with cloud integrations. CI/CD configuration.",
+        "Contributed to an in-house application built with containerized .NET microservices and an Angular front end, deployed to Kubernetes with cloud integrations. Supported CI/CD configuration.",
       achievements: [
-        "Defining the scope of testing within the context of each release / delivery",
-        "Applying the appropriate test measurements and metrics in the product and the Testing Team",
-        "Planning, deploying and managing the testing effort for any given engagement",
+        "Defined the testing scope for each release and delivery.",
+        "Applied appropriate quality measurements and metrics across the product and testing team.",
+        "Planned, deployed, and managed testing activities for each engagement.",
       ],
     },
     {
@@ -68,43 +92,42 @@ window.CV_DATA = {
       position: "Test Engineer",
       duration: "2016-01 - 2018-05",
       achievements: [
-        "Planning and implementing test strategies for the web and mobile applications",
-        "Development and implementation of functional and non-functional test methodologies",
-        "Monitor execution and completeness of tests to ensure the best software quality",
-        "Developing test cases best suited to application functionality",
-        "Research, and reports on assigned tools and topics as required",
-        "Participate in client calls to support project managers and sales representatives",
-        "Participate in training, webinars, and demos of different technologies/applications related to projects",
-        "Creation and configuration of testing tools",
+        "Planned and implemented test strategies for web and mobile applications.",
+        "Developed functional and non-functional testing methodologies.",
+        "Monitored test execution and completeness to maintain software quality.",
+        "Developed test cases aligned with application functionality.",
+        "Researched assigned tools and topics and documented the findings.",
+        "Participated in client calls supporting project managers and sales representatives.",
+        "Participated in training, webinars, and technology demonstrations relevant to projects.",
+        "Created and configured testing tools.",
       ],
     },
   ],
   certificates: [
     { name: "TMAP", description: "Test Engineer" },
-    { name: "ISTQB", description: "Test Analyst, Foundation" },
-    { name: "SAFe4", description: "DevOps Engineer, Practitioner" },
+    { name: "ISTQB", description: "Test Analyst; Foundation Level" },
+    { name: "SAFe 4", description: "DevOps Practitioner" },
   ],
   education: [
     {
       degree: "Bootcamp - Back-End Developer (PHP)",
       duration: "2017-03 - 2017-06, CodersLab",
-      description: "PHP 7, OPP, JavaScript, MySQL, Symfony 2.8",
+      description: "PHP 7, OOP, JavaScript, MySQL, Symfony 2.8",
     },
     {
       degree: "Master of Economics, International Trade",
       duration: "2011-2013, Vistula University",
       description:
-        "Subject: Franchising is a way to start and develop business in Poland",
+        "Thesis: Franchising as a way to start and develop a business in Poland",
     },
     {
       degree:
         "Bachelor of Management, Management of International Activity",
       duration: "2007-2011, Zaporizhzhya National University in Ukraine",
       description:
-        "Subject: Gamification in management analysis in modern-day Ukraine: possibilities and blockers",
+        "Thesis: Gamification in management in modern-day Ukraine: opportunities and barriers",
     },
   ],
   consent:
-    "I agree to the processing of personal data provided in this document for realising the recruitment process pursuant to the Personal Data Protection Act of 10 May 2018 (Journal of Laws 2018, item 1000) and in agreement with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).",
+    "I consent to the processing of the personal data provided in this CV for the purpose of the recruitment process, in accordance with Regulation (EU) 2016/679 (GDPR).",
 };
-

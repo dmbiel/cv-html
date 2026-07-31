@@ -34,6 +34,17 @@ body {
   background: rgb(204, 204, 204);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .page-sheet {
   width: 21cm;
   height: 29.7cm;
@@ -60,6 +71,7 @@ body {
 }
 
 .page {
+  position: relative;
   display: block;
   height: 100%;
   padding: 2cm 1.5cm;
@@ -95,11 +107,13 @@ body {
       text-transform: uppercase;
 
       .name {
+        margin: 0;
         font-size: 30px;
         font-weight: 700;
       }
 
       .title {
+        margin: 0;
         color: rgb(153, 153, 153);
         font-size: 18px;
       }
@@ -123,8 +137,11 @@ body {
           border-radius: 4px;
         }
 
-        span {
+        span,
+        a {
           margin-left: 10px;
+          color: inherit;
+          text-decoration: none;
           vertical-align: middle;
         }
       }
@@ -139,8 +156,10 @@ body {
 
       .category {
         margin-top: 0.5em;
+        margin-bottom: 0;
         font-size: 18px;
         font-weight: 700;
+        line-height: 2em;
       }
     }
 
@@ -161,27 +180,36 @@ body {
       span {
         display: block;
         font-size: 15px;
+      }
 
-        &.company,
-        &.title {
-          font-size: 21px;
-          font-weight: 700;
+      .company,
+      .title {
+        display: block;
+        margin-bottom: 0;
+        font-size: 21px;
+        font-weight: 700;
 
-          &.spaced {
-            padding-top: 18px;
-          }
+        &.spaced {
+          padding-top: 18px;
         }
+      }
 
-        &.position,
-        &.duration {
-          font-weight: 700;
-        }
+      .title {
+        margin-top: 0;
+      }
 
-        &.description,
-        &.achievements {
-          margin-top: 0.5em;
-          text-align: left;
-        }
+      .position,
+      .duration {
+        display: block;
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .description,
+      .achievements {
+        margin-top: 0.5em;
+        text-align: left;
       }
 
       p.description {
@@ -217,9 +245,13 @@ body {
   }
 
   .footer {
-    height: 10%;
+    position: absolute;
+    right: 1.5cm;
+    bottom: 2cm;
+    left: 1.5cm;
 
-    span {
+    p {
+      margin: 0;
       font-size: 11px;
       text-align: justify;
     }
