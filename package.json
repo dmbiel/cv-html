@@ -6,9 +6,15 @@
   "scripts": {
     "build": "sass --style=expanded --source-map style.scss dist/style.css",
     "watch": "sass --style=expanded --source-map --watch style.scss dist/style.css",
-    "preview": "node scripts/serve.mjs"
+    "preview": "node scripts/serve.mjs",
+    "artifacts": "npm run build && node scripts/generate-artifacts.mjs",
+    "pdf": "npm run artifacts",
+    "verify": "npm run artifacts"
   },
   "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright-core": "^1.62.1",
+    "pngjs": "^7.0.0",
     "sass": "^1.102.0"
   }
 }
