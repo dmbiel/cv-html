@@ -1,0 +1,14 @@
+{
+  "name": "dmytro-bieliaiev-cv",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Print-ready HTML CV",
+  "scripts": {
+    "build": "sass --style=expanded --source-map style.scss dist/style.css",
+    "watch": "sass --style=expanded --source-map --watch style.scss dist/style.css",
+    "preview": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "sass": "^1.102.0"
+  }
+}

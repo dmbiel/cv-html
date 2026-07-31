@@ -1,46 +1,75 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap");
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/RobotoMono-Regular.ttf") format("truetype");
+}
 
-$prod: true;
-$test: false;
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/RobotoMono-Bold.ttf") format("truetype");
+}
 
-body {
+@page {
+  size: A4;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
   background: rgb(204, 204, 204);
 }
 
-page[size="A4"] {
-  background-color: white;
-  @if $test == true {
-    background-image: url('');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  width: 21cm;
-  height: 29.7cm;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+body {
+  margin: 8px;
+  background: rgb(204, 204, 204);
 }
 
+.page-sheet {
+  width: 21cm;
+  height: 29.7cm;
+  margin: 0 auto 0.5cm;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  break-after: page;
+
+  &:last-child {
+    break-after: auto;
+  }
+}
 @media print {
-  body,
-  page[size="A4"] {
+  html,
+  body {
     margin: 0;
-    box-shadow: 0;
+    background: white;
+  }
+
+  .page-sheet {
+    margin: 0;
+    box-shadow: none;
   }
 }
 
 .page {
-  font-family: "Roboto Mono", monospace;
-  color: black;
   display: block;
+  height: 100%;
   padding: 2cm 1.5cm;
-  @if $test == true { filter: blur(1px); }
+  color: black;
+  font-family: "Roboto Mono", monospace;
 
   .content {
-    @if $prod == false { background-color: lightblue; }
-    height: calc(0.9 * (29.7cm - 4cm));
     display: flex;
+    height: 90%;
     flex-direction: row;
 
     .column {
@@ -57,46 +86,42 @@ page[size="A4"] {
     }
 
     .break {
-      border-bottom: 1px solid black;
-      margin: 18px 0;
       width: calc(100% - 25px);
+      margin: 18px 0;
+      border-bottom: 1px solid black;
     }
 
     .header {
-      height: 10cm;
+      height: 3cm;
       text-transform: uppercase;
 
       .name {
-        font-size: 30;
-        font-weight: bold;
+        font-size: 30px;
+        font-weight: 700;
       }
 
       .title {
-        font-size: 18;
         color: rgb(153, 153, 153);
+        font-size: 18px;
       }
     }
 
     .info {
-      font-size: 15;
-      font-weight: 400;
       display: flex;
       flex-direction: column;
+      font-size: 15px;
+      font-weight: 400;
 
       div {
+        display: flex;
         margin: 0.5em 0;
         line-height: 20px;
-        display: flex;
 
         img {
-          height: 20px;
           width: 20px;
+          height: 20px;
           margin: 0;
           border-radius: 4px;
-
-          &.invert {
-            filter: invert(1);
-          }
         }
 
         span {
@@ -108,14 +133,14 @@ page[size="A4"] {
 
     .capabilities {
       span {
-        line-height: 2em;
         display: block;
-        font-size: 15;
+        font-size: 15px;
+        line-height: 2em;
       }
 
       .category {
         margin-top: 0.5em;
-        font-size: 18;
+        font-size: 18px;
         font-weight: 700;
       }
     }
@@ -128,15 +153,15 @@ page[size="A4"] {
 
       span {
         display: block;
-        font-size: 15;
+        font-size: 15px;
 
         &.company,
         &.title {
+          font-size: 21px;
           font-weight: 700;
-          font-size: 21;
 
           &.spaced {
-            padding-top: 18;
+            padding-top: 18px;
           }
         }
 
@@ -145,23 +170,19 @@ page[size="A4"] {
           font-weight: 700;
         }
 
-        &.description {
-          text-align: justify;
-          margin-top: 0.5em;
-        }
+        &.description,
         &.achievements {
-          text-align: justify;
           margin-top: 0.5em;
+          text-align: left;
         }
       }
     }
   }
 
   .footer {
-    @if $prod == false { background-color: beige; }
+    height: 10%;
 
-    height: calc(0.1 * (29.7cm - 4cm));
-    span{
+    span {
       font-size: 11px;
       text-align: justify;
     }
@@ -169,7 +190,6 @@ page[size="A4"] {
     .break {
       height: 15px;
       border-bottom: 1px solid black;
-      // padding-top: 15px 0;
     }
   }
 }
