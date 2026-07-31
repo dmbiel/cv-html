@@ -151,6 +151,14 @@ body {
         margin-top: 0.5em;
       }
 
+      .role,
+      .certificate,
+      .education-item,
+      .cv-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
       span {
         display: block;
         font-size: 15px;
@@ -174,6 +182,36 @@ body {
         &.achievements {
           margin-top: 0.5em;
           text-align: left;
+        }
+      }
+
+      p.description {
+        margin-top: 0.5em;
+        margin-bottom: 0;
+        font-size: 15px;
+      }
+
+      .achievements {
+        margin-top: 0.5em;
+        margin-bottom: 0;
+        padding: 0;
+        font-size: 15px;
+        list-style: none;
+
+        li::before {
+          content: "• ";
+        }
+      }
+
+      .certificate {
+        margin-top: 0.5em;
+      }
+
+      .continuation {
+        margin-top: 0;
+
+        .achievements {
+          margin-top: 0;
         }
       }
     }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Roboto Mono";
   font-style: normal;
@@ -129,6 +130,13 @@ body {
 .page .content .experience .company {
   margin-top: 0.5em;
 }
+.page .content .experience .role,
+.page .content .experience .certificate,
+.page .content .experience .education-item,
+.page .content .experience .cv-section {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
 .page .content .experience span {
   display: block;
   font-size: 15px;
@@ -146,6 +154,30 @@ body {
 .page .content .experience span.description, .page .content .experience span.achievements {
   margin-top: 0.5em;
   text-align: left;
+}
+.page .content .experience p.description {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 15px;
+}
+.page .content .experience .achievements {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding: 0;
+  font-size: 15px;
+  list-style: none;
+}
+.page .content .experience .achievements li::before {
+  content: "• ";
+}
+.page .content .experience .certificate {
+  margin-top: 0.5em;
+}
+.page .content .experience .continuation {
+  margin-top: 0;
+}
+.page .content .experience .continuation .achievements {
+  margin-top: 0;
 }
 .page .footer {
   height: 10%;
